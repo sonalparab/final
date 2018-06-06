@@ -4,21 +4,18 @@ LDFLAGS= -lm
 CC= gcc
 
 all: parser
-	./mdl robot.mdl
-
-run: all
-	./mdl myscript.mdl
+	./mdl simple_anim.mdl
 
 parser: lex.yy.c y.tab.c y.tab.h $(OBJECTS)
 	gcc -o mdl $(CFLAGS) lex.yy.c y.tab.c $(OBJECTS) $(LDFLAGS)
 
-lex.yy.c: mdl.l y.tab.h
+lex.yy.c: mdl.l y.tab.h 
 	flex -I mdl.l
 
 y.tab.c: mdl.y symtab.h parser.h
 	bison -d -y mdl.y
 
-y.tab.h: mdl.y
+y.tab.h: mdl.y 
 	bison -d -y mdl.y
 
 symtab.o: symtab.c parser.h matrix.h

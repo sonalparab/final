@@ -28,7 +28,7 @@ struct command
     struct {
       SYMTAB *p;
       /* each triple holds ka kd and ks for red green and blue
-         respectively */
+	 respectively */
     } constants;
     struct {
       SYMTAB *p;
@@ -70,7 +70,7 @@ struct command
     struct {
       SYMTAB *constants;
       char name[255];
-      SYMTAB *cs;
+      SYMTAB *cs; 
     } mesh;
     struct {
       SYMTAB *p;
@@ -116,7 +116,7 @@ struct command
     struct {
       double value;
     } setknobs;
-    struct {
+    struct { 
       double value;
     } focal;
   } op;
@@ -124,10 +124,29 @@ struct command
 
 
 
-
-
 extern struct command op[MAX_COMMANDS];
+
+//Code generator headers
+int num_frames;
+char name[128];
+
+struct vary_node {
+  
+  char name[128];
+  double value;
+  struct vary_node *next;
+};
+
+void print_knobs();
+void process_knobs();
+void first_pass();
+struct vary_node ** second_pass();
 
 void print_pcode();
 void my_main();
 #endif
+
+
+
+
+
