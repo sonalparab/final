@@ -280,37 +280,31 @@ void my_main() {
 	  ambient.red = op[i].op.ambient.c[0];
 	  ambient.green = op[i].op.ambient.c[1];
 	  ambient.blue = op[i].op.ambient.c[2];
-	  printf("red %d\n",ambient.red);
-	  printf("green %d\n",ambient.green);
-	  printf("blue %d\n",ambient.blue);
+	  //printf("red %d\n",ambient.red);
+	  //printf("green %d\n",ambient.green);
+	  //printf("blue %d\n",ambient.blue);
+	  break;
 	case LIGHT:
-	  //sym = op[i].op.light.p;
-	  //printf("light loc %f",op[i].op.light.p->s.l->l[0]);
-	  print_symtab();
-	  printf("I tried\n");
-	  //sym = lookup_symbol(op[i].op.light.p->name);
-	  printf("and failed\n");
-	  //light[LOCATION][0] = tab->s.l->l[0];
-	  printf("here\n");
-	  //light[LOCATION][1] = tab->s.l->l[1];
-	  //light[LOCATION][2] = tab->s.l->l[2];
+	  {
+	    //print_symtab();
 
-	  light[COLOR][RED] = op[i].op.light.c[0];
-	  light[COLOR][GREEN] = op[i].op.light.c[1];
-	  light[COLOR][BLUE] = op[i].op.light.c[2];
+	    SYMTAB *sym = lookup_symbol(op[i].op.light.p->name);
+	    light[LOCATION][0] = sym->s.l->l[0];
+	    light[LOCATION][1] = sym->s.l->l[1];
+	    light[LOCATION][2] = sym->s.l->l[2];
 
-	  printf("light red %f\n",light[COLOR][RED]);
-	  printf("light green %f\n",light[COLOR][GREEN]);
-	  printf("light blue %f\n",light[COLOR][BLUE]);
-	  
-	  /*
-	  light[COLOR][RED] = tab->s.l->c[0];
-	  light[COLOR][GREEN] = tab->s.l->c[1];
-	  light[COLOR][BLUE] = tab->s.l->c[2];*/
-	  //printf("light red %f\n",light[COLOR][RED]);
-	  //printf("light red %f\n",op[i].op.light.c[0]);
-	  //printf("light green %f\n", op[i].op.light.c[1]);
-	  //printf("light blue %f\n", op[i].op.light.c[2]);
+	    light[COLOR][RED] = op[i].op.light.c[0];
+	    light[COLOR][GREEN] = op[i].op.light.c[1];
+	    light[COLOR][BLUE] = op[i].op.light.c[2];
+
+	    /*printf("light x %f\n",light[LOCATION][0]);
+	      printf("light y %f\n",light[LOCATION][1]);
+	      printf("light z %f\n",light[LOCATION][2]);
+	      printf("light red %f\n",light[COLOR][RED]);
+	      printf("light green %f\n",light[COLOR][GREEN]);
+	      printf("light blue %f\n",light[COLOR][BLUE]);*/
+	    break;
+	  }
 	case SPHERE:
 	  if (op[i].op.sphere.constants != NULL)
 	    {
@@ -486,13 +480,31 @@ void my_main() {
 	      ambient.red = op[i].op.ambient.c[0];
 	      ambient.green = op[i].op.ambient.c[1];
 	      ambient.blue = op[i].op.ambient.c[2];
-	      printf("red %d\n",ambient.red);
-	      printf("green %d\n",ambient.green);
-	      printf("blue %d\n",ambient.blue);
+	      //printf("red %d\n",ambient.red);
+	      //printf("green %d\n",ambient.green);
+	      //printf("blue %d\n",ambient.blue);
+	      break;
 	    case LIGHT:
-	      printf("red %f\n",op[lastop].op.light.c[0]);
-	      printf("green %f\n", op[lastop].op.light.c[1]);
-	      printf("blue %f\n", op[lastop].op.light.c[2]);
+	      {
+		//print_symtab();
+
+		SYMTAB *sym = lookup_symbol(op[i].op.light.p->name);
+		light[LOCATION][0] = sym->s.l->l[0];
+		light[LOCATION][1] = sym->s.l->l[1];
+		light[LOCATION][2] = sym->s.l->l[2];
+
+		light[COLOR][RED] = op[i].op.light.c[0];
+		light[COLOR][GREEN] = op[i].op.light.c[1];
+		light[COLOR][BLUE] = op[i].op.light.c[2];
+
+		/*printf("light x %f\n",light[LOCATION][0]);
+		  printf("light y %f\n",light[LOCATION][1]);
+		  printf("light z %f\n",light[LOCATION][2]);
+		  printf("light red %f\n",light[COLOR][RED]);
+		  printf("light green %f\n",light[COLOR][GREEN]);
+		  printf("light blue %f\n",light[COLOR][BLUE]);*/
+		break;
+	      }
 	    case SPHERE:
 	      if (op[i].op.sphere.constants != NULL)
 		{
