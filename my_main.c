@@ -275,6 +275,13 @@ void my_main() {
       //printf("%d: ",i);
       switch (op[i].opcode)
 	{
+	case AMBIENT:
+	  ambient.red = op[i].op.ambient.c[0];
+	  ambient.green = op[i].op.ambient.c[1];
+	  ambient.blue = op[i].op.ambient.c[2];
+	  printf("red %d\n",ambient.red);
+	  printf("green %d\n",ambient.green);
+	  printf("blue %d\n",ambient.blue);
 	case SPHERE:
 	  if (op[i].op.sphere.constants != NULL)
 	    {
@@ -357,11 +364,11 @@ void my_main() {
 	  xval = op[i].op.move.d[0];
 	  yval = op[i].op.move.d[1];
 	  zval = op[i].op.move.d[2];
-	  printf("Move: %6.2f %6.2f %6.2f",
-		 xval, yval, zval);
+	  /*printf("Move: %6.2f %6.2f %6.2f",
+	    xval, yval, zval);*/
 	  if (op[i].op.move.p != NULL)
 	    {
-	      printf("\tknob: %s",op[i].op.move.p->name);
+	      //printf("\tknob: %s",op[i].op.move.p->name);
 	    }
 	  tmp = make_translate( xval, yval, zval );
 	  matrix_mult(peek(systems), tmp);
@@ -376,7 +383,7 @@ void my_main() {
 		 xval, yval, zval);
 	  if (op[i].op.scale.p != NULL)
 	    {
-	      printf("\tknob: %s",op[i].op.scale.p->name);
+	      //printf("\tknob: %s",op[i].op.scale.p->name);
 	    }
 	  tmp = make_scale( xval, yval, zval );
 	  matrix_mult(peek(systems), tmp);
@@ -386,11 +393,11 @@ void my_main() {
 	case ROTATE:
 	  xval = op[i].op.rotate.axis;
 	  theta = op[i].op.rotate.degrees;
-	  printf("Rotate: axis: %6.2f degrees: %6.2f",
-		 xval, theta);
+	  /*printf("Rotate: axis: %6.2f degrees: %6.2f",
+	    xval, theta);*/
 	  if (op[i].op.rotate.p != NULL)
 	    {
-	      printf("\tknob: %s",op[i].op.rotate.p->name);
+	      //printf("\tknob: %s",op[i].op.rotate.p->name);
 	    }
 	  theta*= (M_PI / 180);
 	  if (op[i].op.rotate.axis == 0 )
@@ -421,7 +428,7 @@ void my_main() {
 	  display(t);
 	  break;
 	} //end opcode switch
-      printf("\n");
+      //printf("\n");
     }//end operation loop
   }
 
@@ -446,6 +453,13 @@ void my_main() {
 	  //printf("%d: ",i);
 	  switch (op[i].opcode)
 	    {
+	    case AMBIENT:
+	      ambient.red = op[i].op.ambient.c[0];
+	      ambient.green = op[i].op.ambient.c[1];
+	      ambient.blue = op[i].op.ambient.c[2];
+	      printf("red %d\n",ambient.red);
+	      printf("green %d\n",ambient.green);
+	      printf("blue %d\n",ambient.blue);
 	    case SPHERE:
 	      if (op[i].op.sphere.constants != NULL)
 		{
@@ -531,15 +545,15 @@ void my_main() {
 	  
 	      if (op[i].op.move.p != NULL)
 		{
-		  printf("\tknob: %s ",op[i].op.move.p->name);
+		  //printf("\tknob: %s ",op[i].op.move.p->name);
 		  //printf("\nmove: %0.2f\n",lookup_symbol(op[i].op.move.p->name)->s.value);
 		  xval *= lookup_symbol(op[i].op.move.p->name)->s.value;
 		  yval *= lookup_symbol(op[i].op.move.p->name)->s.value;
 		  zval *= lookup_symbol(op[i].op.move.p->name)->s.value;
 		}
 
-	      printf("Move: %6.2f %6.2f %6.2f",
-		     xval, yval, zval);
+	      /*printf("Move: %6.2f %6.2f %6.2f",
+		     xval, yval, zval);*/
 	  
 	      tmp = make_translate( xval, yval, zval );
 	      matrix_mult(peek(systems), tmp);
@@ -553,15 +567,15 @@ void my_main() {
 	  
 	      if (op[i].op.scale.p != NULL)
 		{
-		  printf("\tknob: %s ",op[i].op.scale.p->name);
+		  //printf("\tknob: %s ",op[i].op.scale.p->name);
 		  //printf("\nscale: %0.2f\n",lookup_symbol(op[i].op.scale.p->name)->s.value);
 		  xval *= lookup_symbol(op[i].op.scale.p->name)->s.value;
 		  yval *= lookup_symbol(op[i].op.scale.p->name)->s.value;
 		  zval *= lookup_symbol(op[i].op.scale.p->name)->s.value;
 		}
 
-	      printf("Scale: %6.2f %6.2f %6.2f",
-		     xval, yval, zval);
+	      /*printf("Scale: %6.2f %6.2f %6.2f",
+		xval, yval, zval);*/
 	  
 	      tmp = make_scale( xval, yval, zval );
 	      matrix_mult(peek(systems), tmp);
@@ -581,8 +595,8 @@ void my_main() {
 	      
 		}
 
-	      printf("Rotate: axis: %6.2f degrees: %6.2f",
-		     xval, theta);
+	      /*printf("Rotate: axis: %6.2f degrees: %6.2f",
+		xval, theta);*/
 	  
 	      theta*= (M_PI / 180);
 	      if (op[i].op.rotate.axis == 0 )

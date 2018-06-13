@@ -1,4 +1,4 @@
-ambient 50 50 50
+ambient 0 0 0
 //BODY
 push
 move 250 250 0
