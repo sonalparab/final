@@ -297,12 +297,12 @@ void my_main() {
 	    light[COLOR][GREEN] = op[i].op.light.c[1];
 	    light[COLOR][BLUE] = op[i].op.light.c[2];
 
-	    /*printf("light x %f\n",light[LOCATION][0]);
-	      printf("light y %f\n",light[LOCATION][1]);
-	      printf("light z %f\n",light[LOCATION][2]);
-	      printf("light red %f\n",light[COLOR][RED]);
-	      printf("light green %f\n",light[COLOR][GREEN]);
-	      printf("light blue %f\n",light[COLOR][BLUE]);*/
+	    printf("light x %f\n",light[LOCATION][0]);
+	    printf("light y %f\n",light[LOCATION][1]);
+	    printf("light z %f\n",light[LOCATION][2]);
+	    printf("light red %f\n",light[COLOR][RED]);
+	    printf("light green %f\n",light[COLOR][GREEN]);
+	    printf("light blue %f\n",light[COLOR][BLUE]);
 	    break;
 	  }
 	case SPHERE:
@@ -497,12 +497,12 @@ void my_main() {
 		light[COLOR][GREEN] = op[i].op.light.c[1];
 		light[COLOR][BLUE] = op[i].op.light.c[2];
 
-		/*printf("light x %f\n",light[LOCATION][0]);
-		  printf("light y %f\n",light[LOCATION][1]);
-		  printf("light z %f\n",light[LOCATION][2]);
-		  printf("light red %f\n",light[COLOR][RED]);
-		  printf("light green %f\n",light[COLOR][GREEN]);
-		  printf("light blue %f\n",light[COLOR][BLUE]);*/
+		printf("light x %f\n",light[LOCATION][0]);
+		printf("light y %f\n",light[LOCATION][1]);
+		printf("light z %f\n",light[LOCATION][2]);
+		printf("light red %f\n",light[COLOR][RED]);
+		printf("light green %f\n",light[COLOR][GREEN]);
+		printf("light blue %f\n",light[COLOR][BLUE]);
 		break;
 	      }
 	    case SPHERE:
