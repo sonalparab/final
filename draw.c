@@ -194,6 +194,30 @@ void draw_polygons(struct matrix *polygons, screen s, zbuffer zb,
   }
 }
 
+void add_tetra( struct matrix * polygons,
+		 double x, double y, double z,
+		 double length ){
+
+  double x1, x2, x3, y1, y2, y3, z1, z2, z3;
+  x1 = x;
+  y1 = y - (length / sqrt(2));
+  z1 = z - (length / sqrt(2));
+
+  x2 = x - (length / 2);
+  y2 = y1;
+  z2 = z - (length/2)/sqrt(3);
+
+  x3 = x2 + length;
+  y3 = y1;
+  z3 = z2;
+
+  add_polygon(polygons, x, y, z, x1, y1, z1, x2, y2, z2);
+  add_polygon(polygons, x, y, z, x3, y3, z3, x1, y1, z1);
+  add_polygon(polygons, x1, y1, z1, x3, y3, z3, x2, y2, z2);
+  
+}
+
+
 /*======== void add_box() ==========
   Inputs:   struct matrix * edges
   double x

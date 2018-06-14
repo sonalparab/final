@@ -39,9 +39,14 @@ struct command
     struct {
       SYMTAB *constants;
       double d[4];
+      SYMTAB *cs;
+    }tetra;
+    struct {
+      SYMTAB *constants;
+      double d[4];
       double r;
       SYMTAB *cs;
-    } sphere;
+    }sphere;
     struct {
       SYMTAB *constants;
       double d0[3];

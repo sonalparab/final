@@ -23,6 +23,7 @@ ID [a-zA-Z][a-zA-Z0-9_]*
 "camera" {return CAMERA;}
 "ambient" {return AMBIENT;}
 
+"tetra" { return TETRA;}
 "torus" { return TORUS;}
 "sphere" { return SPHERE;}
 "box" {return BOX;}
