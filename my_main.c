@@ -305,64 +305,6 @@ void my_main() {
 	    printf("light blue %f\n",light[COLOR][BLUE]);*/
 	    break;
 	  }
-	case TETRA:
-	  {
-            double alight[3];
-            double dlight[3];
-            double slight[3];
-            alight[0] = areflect[0];
-            alight[1] = areflect[1];
-            alight[2] = areflect[2];
-            dlight[0] = dreflect[0];
-            dlight[1] = dreflect[1];
-            dlight[2] = dreflect[2];
-            slight[0] = sreflect[0];
-            slight[1] = sreflect[1];
-            slight[2] = sreflect[2];
-          if (op[i].op.tetra.constants != NULL){
-              printf("\tconstants: %s\n",op[i].op.tetra.constants->name);
-
-              SYMTAB *sym = lookup_symbol(op[i].op.constants.p->name);
-
-              alight[0] = sym->s.c->r[0];
-              alight[1] = sym->s.c->g[0];
-              alight[2] = sym->s.c->b[0];
-              dlight[0] = sym->s.c->r[1];
-              dlight[1] = sym->s.c->g[1];
-              dlight[2] = sym->s.c->b[1];
-              slight[0] = sym->s.c->r[2];
-              slight[1] = sym->s.c->g[2];
-              slight[2] = sym->s.c->b[2];
-          }
-	  if (op[i].op.tetra.constants != NULL){
-              printf("\tconstants: %s\n",op[i].op.tetra.constants->name);
-
-              SYMTAB *sym = lookup_symbol(op[i].op.constants.p->name);
-
-              alight[0] = sym->s.c->r[0];
-              alight[1] = sym->s.c->g[0];
-              alight[2] = sym->s.c->b[0];
-              dlight[0] = sym->s.c->r[1];
-              dlight[1] = sym->s.c->g[1];
-              dlight[2] = sym->s.c->b[1];
-              slight[0] = sym->s.c->r[2];
-              slight[1] = sym->s.c->g[2];
-              slight[2] = sym->s.c->b[2];
-          }
-          if (op[i].op.tetra.cs != NULL)
-            {
-              //printf("\tcs: %s",op[i].op.tetra.cs->name);                                                                                 
-            }
-          add_tetra(tmp, op[i].op.tetra.d[0],
-                     op[i].op.tetra.d[1],
-                     op[i].op.tetra.d[2],
-                     op[i].op.tetra.d[3]);
-          matrix_mult( peek(systems), tmp );
-          draw_polygons(tmp, t, zb, view, light, ambient,
-                        alight, dlight, slight);
-          tmp->lastcol = 0;
-          break;
-	  }
 	case SPHERE:
 	  {
 	    double alight[3];

@@ -1,4 +1,4 @@
-#include <stdio.h>
+AAOA#include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
 
@@ -168,7 +168,7 @@ void draw_polygons(struct matrix *polygons, screen s, zbuffer zb,
       color c = get_lighting(normal, view, ambient, light, areflect, dreflect, sreflect);
 
       scanline_convert(polygons, point, s, zb, c);
-
+      
       draw_line( polygons->m[0][point],
                  polygons->m[1][point],
                  polygons->m[2][point],
@@ -187,36 +187,12 @@ void draw_polygons(struct matrix *polygons, screen s, zbuffer zb,
                  polygons->m[1][point],
                  polygons->m[2][point],
                  polygons->m[0][point+2],
-                 polygons->m[1][point+2],
+		 polygons->m[1][point+2],
                  polygons->m[2][point+2],
                  s, zb, c);
     }
   }
 }
-
-void add_tetra( struct matrix * polygons,
-		 double x, double y, double z,
-		 double length ){
-
-  double x1, x2, x3, y1, y2, y3, z1, z2, z3;
-  x1 = x;
-  y1 = y - (length / sqrt(2));
-  z1 = z - (length / sqrt(2));
-
-  x2 = x - (length / 2);
-  y2 = y1;
-  z2 = z - (length/2)/sqrt(3);
-
-  x3 = x2 + length;
-  y3 = y1;
-  z3 = z2;
-
-  add_polygon(polygons, x, y, z, x1, y1, z1, x2, y2, z2);
-  add_polygon(polygons, x, y, z, x3, y3, z3, x1, y1, z1);
-  add_polygon(polygons, x1, y1, z1, x3, y3, z3, x2, y2, z2);
-  
-}
-
 
 /*======== void add_box() ==========
   Inputs:   struct matrix * edges
@@ -726,5 +702,7 @@ void draw_line(int x0, int y0, double z0,
     z+= dz;
     loop_start++;
   } //end drawing loop
+
+  
   plot( s, zb, c, x1, y1, z );
 } //end draw_line
