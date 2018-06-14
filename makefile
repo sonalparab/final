@@ -5,7 +5,7 @@ CC= gcc
 
 run: parser
 	./mdl bouncyballs.mdl
-	animate bouncy_balls.gif
+	animate bouncy_ball.gif
 
 parser: lex.yy.c y.tab.c y.tab.h $(OBJECTS)
 	gcc -o mdl $(CFLAGS) lex.yy.c y.tab.c $(OBJECTS) $(LDFLAGS)

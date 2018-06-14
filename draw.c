@@ -211,7 +211,7 @@ void add_tetra( struct matrix * polygons,
   y3 = y1;
   z3 = z2;
 
-  add_polygon(polygons, x1, y1, z1, x, y, z, x2, y2, z2);
+  add_polygon(polygons, x, y, z, x1, y1, z1, x2, y2, z2);
   add_polygon(polygons, x, y, z, x3, y3, z3, x1, y1, z1);
   add_polygon(polygons, x1, y1, z1, x3, y3, z3, x2, y2, z2);
   
