@@ -4,8 +4,8 @@ LDFLAGS= -lm
 CC= gcc
 
 run: parser
-	./mdl shapes.mdl
-	animate shapes.gif
+	./mdl bouncyballs.mdl
+	animate bouncyballs.gif
 
 parser: lex.yy.c y.tab.c y.tab.h $(OBJECTS)
 	gcc -o mdl $(CFLAGS) lex.yy.c y.tab.c $(OBJECTS) $(LDFLAGS)
